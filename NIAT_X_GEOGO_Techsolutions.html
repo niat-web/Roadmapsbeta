@@ -1,2215 +1,2300 @@
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIAT_X_GEOGO Techsolutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_GEOGO Techsolutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      /* Professional Designer Color Palette - More Diverse & Visually Distinct */
       
-      :root {
-        /* Professional Designer Color Palette - More Diverse & Visually Distinct */
-        
-        /* Primary Brand Colors */
-        --primary-dark: #0F2C59;      /* Dark navy blue for main header */
-        --primary: #1D5B79;           /* Teal blue for section headers */
-        --primary-light: #2D9596;     /* Vibrant teal for accents */
-        
-        /* Secondary Colors */
-        --secondary-dark: #553C9A;    /* Deep purple for active tabs */
-        --secondary: #6D28D9;         /* Medium purple for section headers */
-        --secondary-light: #A78BFA;   /* Light purple for hover states */
-        
-        /* Accent Colors - For Visual Interest */
-        --accent-1: #065A82;          /* Deep blue accent */
-        --accent-2: #F97316;          /* Orange accent for CTA buttons */
-        --accent-3: #0891B2;          /* Cyan blue for progress bars */
-        
-        /* Status Colors - Carefully Calibrated for Accessibility */
-        --completed: #10b981;         /* Emerald green */
-        --completed-bg: rgba(16, 185, 129, 0.12);
-        --completed-border: rgba(16, 185, 129, 0.25);
-        
-        --in-progress: #f59e0b;       /* Amber */
-        --in-progress-bg: rgba(245, 158, 11, 0.12);
-        --in-progress-border: rgba(245, 158, 11, 0.25);
-        
-        --not-started: #ef4444;       /* Red */
-        --not-started-bg: rgba(239, 68, 68, 0.12);
-        --not-started-border: rgba(239, 68, 68, 0.25);
-        
-        /* Neutrals - For Balance and Readability */
-        --neutral-50: #f8fafc;        /* Lightest gray */
-        --neutral-100: #f1f5f9;       /* Very light gray */
-        --neutral-200: #e2e8f0;       /* Light gray */
-        --neutral-300: #cbd5e1;       /* Medium light gray */
-        --neutral-400: #94a3b8;       /* Medium gray */
-        --neutral-500: #64748b;       /* Medium dark gray */
-        --neutral-600: #475569;       /* Dark gray */
-        --neutral-700: #334155;       /* Very dark gray */
-        --neutral-800: #1e293b;       /* Almost black */
-        --neutral-900: #0f172a;       /* True dark */
-        
-        /* Text Colors */
-        --text-primary: #1e293b;      /* Dark slate for main text */
-        --text-secondary: #475569;    /* Slate for secondary text */
-        --text-tertiary: #64748b;     /* Lighter slate for tertiary text */
-        --text-light: #f8fafc;        /* White text for dark backgrounds */
-        
-        /* Background Colors */
-        --bg-primary: #f8fafc;        /* Very light slate for main background */
-        --bg-secondary: #ffffff;      /* Pure white for cards */
-        
-        /* UI Elements */
-        --border-light: #e2e8f0;
-        --border-medium: #cbd5e1;
-        --border-dark: #94a3b8;
-        
-        /* Gradients - For Visual Richness */
-        --header-gradient: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-        --tab-active-gradient: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%);
-        --table-header-gradient: linear-gradient(to bottom, var(--primary) 0%, var(--primary-dark) 100%);
-        --progress-gradient: linear-gradient(90deg, var(--accent-3) 0%, var(--primary-light) 100%);
-        
-        /* Effects */
-        --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-        --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-        --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.06);
-        
-        --border-radius-sm: 4px;
-        --border-radius: 8px;
-        --border-radius-lg: 12px;
-        --border-radius-full: 9999px;
-        
-        --transition-fast: all 0.2s ease;
-        --transition: all 0.3s ease;
-        --scroll-behavior: smooth;
-      }
+      /* Primary Brand Colors */
+      --primary-dark: #0F2C59;      /* Dark navy blue for main header */
+      --primary: #1D5B79;           /* Teal blue for section headers */
+      --primary-light: #2D9596;     /* Vibrant teal for accents */
       
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      /* Secondary Colors */
+      --secondary-dark: #553C9A;    /* Deep purple for active tabs */
+      --secondary: #6D28D9;         /* Medium purple for section headers */
+      --secondary-light: #A78BFA;   /* Light purple for hover states */
       
-      html {
-        scroll-behavior: var(--scroll-behavior);
-      }
+      /* Accent Colors - For Visual Interest */
+      --accent-1: #065A82;          /* Deep blue accent */
+      --accent-2: #F97316;          /* Orange accent for CTA buttons */
+      --accent-3: #0891B2;          /* Cyan blue for progress bars */
       
-      body {
-        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: var(--text-primary);
-        line-height: 1.6;
-        background-color: var(--bg-primary);
-        font-size: 16px;
-      }
+      /* Status Colors - Carefully Calibrated for Accessibility */
+      --completed: #10b981;         /* Emerald green */
+      --completed-bg: rgba(16, 185, 129, 0.12);
+      --completed-border: rgba(16, 185, 129, 0.25);
       
-      /* Header */
-      .header {
-        background: var(--header-gradient);
-        color: var(--text-light);
-        box-shadow: var(--shadow-md);
-        position: relative;
-      }
+      --in-progress: #f59e0b;       /* Amber */
+      --in-progress-bg: rgba(245, 158, 11, 0.12);
+      --in-progress-border: rgba(245, 158, 11, 0.25);
       
-      .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: var(--primary-light);
-      }
+      --not-started: #ef4444;       /* Red */
+      --not-started-bg: rgba(239, 68, 68, 0.12);
+      --not-started-border: rgba(239, 68, 68, 0.25);
       
-      .header-container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 1px 1px; /* Increased padding */
-        text-align: center;
-      }
+      /* Neutrals - For Balance and Readability */
+      --neutral-50: #f8fafc;        /* Lightest gray */
+      --neutral-100: #f1f5f9;       /* Very light gray */
+      --neutral-200: #e2e8f0;       /* Light gray */
+      --neutral-300: #cbd5e1;       /* Medium light gray */
+      --neutral-400: #94a3b8;       /* Medium gray */
+      --neutral-500: #64748b;       /* Medium dark gray */
+      --neutral-600: #475569;       /* Dark gray */
+      --neutral-700: #334155;       /* Very dark gray */
+      --neutral-800: #1e293b;       /* Almost black */
+      --neutral-900: #0f172a;       /* True dark */
       
+      /* Text Colors */
+      --text-primary: #1e293b;      /* Dark slate for main text */
+      --text-secondary: #475569;    /* Slate for secondary text */
+      --text-tertiary: #64748b;     /* Lighter slate for tertiary text */
+      --text-light: #f8fafc;        /* White text for dark backgrounds */
+      
+      /* Background Colors */
+      --bg-primary: #f8fafc;        /* Very light slate for main background */
+      --bg-secondary: #ffffff;      /* Pure white for cards */
+      
+      /* UI Elements */
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
+      --border-dark: #94a3b8;
+      
+      /* Gradients - For Visual Richness */
+      --header-gradient: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      --tab-active-gradient: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%);
+      --table-header-gradient: linear-gradient(to bottom, var(--primary) 0%, var(--primary-dark) 100%);
+      --progress-gradient: linear-gradient(90deg, var(--accent-3) 0%, var(--primary-light) 100%);
+      
+      /* Effects */
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.06);
+      
+      --border-radius-sm: 4px;
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --border-radius-full: 9999px;
+      
+      --transition-fast: all 0.2s ease;
+      --transition: all 0.3s ease;
+      --scroll-behavior: smooth;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: var(--scroll-behavior);
+    }
+    
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      font-size: 16px;
+    }
+    
+    /* Header */
+    .header {
+      background: var(--header-gradient);
+      color: var(--text-light);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary-light);
+    }
+    
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1px 1px; /* Increased padding */
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2rem; /* Adjusted font size */
+      font-weight: 700;
+      color: var(--text-light);
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Tabs */
+    .tabs-container {
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: transparent;;
+    }
+    
+    .tabs-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background-color: transparent;;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .role-tab {
+      padding: 14px 24px;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-light);
+      border-bottom: none;
+      margin-right: 5px;
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+      text-align: center;
+      min-width: auto;
+      position: relative;
+      top: 1px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .role-tab:hover {
+      background-color: var(--neutral-100);
+      color: var(--secondary);
+      transform: translateY(-2px);
+    }
+    
+    .role-tab.active {
+      background: var(--tab-active-gradient);
+      color: var(--text-light);
+      font-weight: 600;
+      border-color: var(--secondary-dark);
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    }
+    
+    /* Content */
+    .content-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 20px;
+      scroll-margin-top: 60px; /* Space for fixed header */
+    }
+    
+    /* Special styling for Foundation Training tab */
+    .role-section[id="role-0"] .content-container {
+      padding-top: 0;
+    }
+    
+    /* Foundation Training Info */
+    .foundation-info {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .info-box {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: linear-gradient(to right, #EDE9FE, #DBEAFE);
+      border-left: 4px solid var(--secondary);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .info-icon {
+      margin-right: 12px;
+      color: var(--secondary);
+      font-size: 1.2rem;
+    }
+    
+    .info-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .highlight {
+      position: relative;
+      color: var(--secondary-dark);
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .highlight::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background-color: #FDE68A;
+      opacity: 0.5;
+      z-index: -1;
+      border-radius: 2px;
+    }
+    
+    /* Tech Stack Section */
+    .tech-stack-section {
+      margin-bottom: 36px;
+      background-color: var(--bg-secondary);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+    
+    .tech-stack-section:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 5px; /* Increased padding */
+      background-color: var(--neutral-100);
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .tech-stack-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .tech-stack-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--primary-light);
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .progress-bar-container {
+      width: 160px;
+      height: 10px;
+      background-color: var(--neutral-200);
+      border-radius: var(--border-radius-full);
+      overflow: hidden;
+      box-shadow: var(--shadow-inner);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--progress-gradient);
+      border-radius: var(--border-radius-full);
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .progress-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+    }
+    
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    
+    .roadmap-table th {
+      background: var(--table-header-gradient);
+      color: var(--text-light);
+      font-weight: 600;
+      text-align: left;
+      padding: 16px 24px;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: sticky;
+      top: 0; /* Ensure sticky header works */
+      z-index: 10;
+    }
+    
+    .roadmap-table th:first-child {
+      border-top-left-radius: 0; /* Corrected from border-radius-lg */
+    }
+    
+    .roadmap-table th:last-child {
+      border-top-right-radius: 0; /* Corrected */
+    }
+    
+    .roadmap-table tr {
+      transition: var(--transition-fast);
+    }
+    
+    .roadmap-table tr:nth-child(even) {
+      background-color: var(--neutral-50);
+    }
+    
+    .roadmap-table tr:hover {
+      background-color: rgba(109, 40, 217, 0.05); /* Using secondary color for hover */
+    }
+    
+    .roadmap-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+    
+    .roadmap-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .topic-cell {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    /* Status Badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--border-radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+    
+    .status-badge:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .status-completed {
+      background-color: var(--completed-bg);
+      color: var(--completed);
+      border: 1px solid var(--completed-border);
+    }
+    
+    .status-in-progress {
+      background-color: var(--in-progress-bg);
+      color: var(--in-progress);
+      border: 1px solid var(--in-progress-border);
+    }
+    
+    .status-not-started {
+      background-color: var(--not-started-bg);
+      color: var(--not-started);
+      border: 1px solid var(--not-started-border);
+    }
+    
+    /* Lists */
+    ul.item-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    ul.item-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.95rem; /* Slightly increased for readability */
+      color: var(--text-secondary);
+    }
+    
+    ul.item-list li:last-child {
+      margin-bottom: 0;
+    }
+    
+    ul.item-list li:before {
+      content: "•"; /* Simpler bullet */
+      position: absolute;
+      left: 0;
+      color: var(--primary-light); /* Consistent accent color */
+      font-weight: bold;
+      font-size: 1.2rem; /* Adjusted bullet size */
+    }
+    
+    /* Empty State */
+    .empty-state {
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--text-tertiary);
+    }
+    
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--neutral-400);
+      opacity: 0.8;
+    }
+    
+    .empty-state p {
+      font-size: 1.1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Scroll to top button */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: var(--text-light);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+      z-index: 100; /* Ensure it's above other content */
+    }
+    
+    .scroll-top-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scroll-top-btn i {
+      font-size: 1.2rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
       .header h1 {
-        font-size: 2rem; /* Adjusted font size */
-        font-weight: 700;
-        color: var(--text-light);
-        margin: 0;
-        letter-spacing: 0.5px;
-      }
-      
-      /* Tabs */
-      .tabs-container {
-        padding: 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background-color: var(--bg-secondary);
-        box-shadow: var(--shadow-sm);
-      }
-      
-      .tabs-wrapper {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
-        background-color: var(--bg-secondary);
-        padding: 0 20px;
-        position: relative;
-        z-index: 2;
-      }
-      
-      .role-tab {
-        padding: 14px 24px;
-        background-color: var(--bg-secondary);
-        color: var(--text-secondary);
-        font-weight: 500;
-        font-size: 0.95rem;
-        border: 1px solid var(--border-light);
-        border-bottom: none;
-        margin-right: 5px;
-        border-top-left-radius: var(--border-radius);
-        border-top-right-radius: var(--border-radius);
-        text-align: center;
-        min-width: auto;
-        position: relative;
-        top: 1px;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-      
-      .role-tab:hover {
-        background-color: var(--neutral-100);
-        color: var(--secondary);
-        transform: translateY(-2px);
-      }
-      
-      .role-tab.active {
-        background: var(--tab-active-gradient);
-        color: var(--text-light);
-        font-weight: 600;
-        border-color: var(--secondary-dark);
-        box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-      }
-      
-      /* Content */
-      .content-container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 28px 20px;
-        scroll-margin-top: 60px; /* Space for fixed header */
-      }
-      
-      /* Tech Stack Section */
-      .tech-stack-section {
-        margin-bottom: 36px;
-        background-color: var(--bg-secondary);
-        border-radius: var(--border-radius-lg);
-        box-shadow: var(--shadow-md);
-        overflow: hidden;
-        border: 1px solid var(--border-light);
-        transition: var(--transition);
-      }
-      
-      .tech-stack-section:hover {
-        box-shadow: var(--shadow-lg);
-        transform: translateY(-2px);
+        font-size: 1.6rem;
       }
       
       .tech-stack-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 5px; /* Increased padding */
-        background-color: var(--neutral-100);
-        border-bottom: 1px solid var(--border-light);
-      }
-      
-      .tech-stack-title {
-        display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 14px;
-        font-size: 1.35rem;
-        font-weight: 600;
-        color: var(--primary);
-      }
-      
-      .tech-stack-icon {
-        width: 24px;
-        height: 24px;
-        color: var(--primary-light);
       }
       
       .progress-container {
-        display: flex;
-        align-items: center;
-        gap: 16px;
+        width: 100%;
       }
       
       .progress-bar-container {
-        width: 160px;
-        height: 10px;
-        background-color: var(--neutral-200);
-        border-radius: var(--border-radius-full);
-        overflow: hidden;
-        box-shadow: var(--shadow-inner);
-      }
-      .progress-bar-fill {
-        height: 100%;
-        background: var(--progress-gradient);
-        border-radius: var(--border-radius-full);
-        transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        flex: 1;
+        max-width: 100%; /* Ensure it doesn't overflow */
       }
       
-      .progress-text {
+      .role-tab {
+        padding: 12px 16px;
         font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-secondary);
       }
       
-      /* Table */
-      .table-container {
-        overflow-x: auto;
-        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
-      }
-      
-      .roadmap-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.95rem;
-      }
-      
-      .roadmap-table th {
-        background: var(--table-header-gradient);
-        color: var(--text-light);
-        font-weight: 600;
-        text-align: left;
-        padding: 16px 24px;
-        font-size: 0.85rem;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        position: sticky;
-        top: 0; /* Ensure sticky header works */
-        z-index: 10;
-      }
-      
-      .roadmap-table th:first-child {
-        border-top-left-radius: 0; /* Corrected from border-radius-lg */
-      }
-      
-      .roadmap-table th:last-child {
-        border-top-right-radius: 0; /* Corrected */
-      }
-      
-      .roadmap-table tr {
-        transition: var(--transition-fast);
-      }
-      
-      .roadmap-table tr:nth-child(even) {
-        background-color: var(--neutral-50);
-      }
-      
-      .roadmap-table tr:hover {
-        background-color: rgba(109, 40, 217, 0.05); /* Using secondary color for hover */
-      }
-      
+      .roadmap-table th,
       .roadmap-table td {
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--border-light);
-        vertical-align: top;
+        padding: 16px 18px; /* Slightly adjusted */
       }
       
-      .roadmap-table tr:last-child td {
-        border-bottom: none;
+      .tabs-wrapper {
+        padding: 0 14px; /* Consistent padding */
+        overflow-x: auto; /* Ensure tabs scroll if too many */
+        flex-wrap: nowrap; /* Prevent wrapping on small screens */
       }
       
-      .topic-cell {
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-      
-      /* Status Badges */
-      .status-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 8px 16px;
-        border-radius: var(--border-radius-full);
-        font-size: 0.8rem;
-        font-weight: 600;
-        white-space: nowrap;
-        box-shadow: var(--shadow-sm);
-        transition: var(--transition-fast);
-      }
-      
-      .status-badge:hover {
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-md);
-      }
-      
-      .status-completed {
-        background-color: var(--completed-bg);
-        color: var(--completed);
-        border: 1px solid var(--completed-border);
-      }
-      
-      .status-in-progress {
-        background-color: var(--in-progress-bg);
-        color: var(--in-progress);
-        border: 1px solid var(--in-progress-border);
-      }
-      
-      .status-not-started {
-        background-color: var(--not-started-bg);
-        color: var(--not-started);
-        border: 1px solid var(--not-started-border);
-      }
-      
-      /* Lists */
-      ul.item-list {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-      }
-      
-      ul.item-list li {
-        position: relative;
-        padding-left: 20px;
-        font-size: 0.95rem; /* Slightly increased for readability */
-        color: var(--text-secondary);
-      }
-      
-      ul.item-list li:last-child {
-        margin-bottom: 0;
-      }
-      
-      ul.item-list li:before {
-        content: "•"; /* Simpler bullet */
-        position: absolute;
-        left: 0;
-        color: var(--primary-light); /* Consistent accent color */
-        font-weight: bold;
-        font-size: 1.2rem; /* Adjusted bullet size */
-      }
-      
-      /* Empty State */
-      .empty-state {
-        padding: 48px 24px;
-        text-align: center;
-        color: var(--text-tertiary);
-      }
-      
-      .empty-state i {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        color: var(--neutral-400);
-        opacity: 0.8;
-      }
-      
-      .empty-state p {
-        font-size: 1.1rem;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      /* Scroll to top button */
       .scroll-top-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background-color: var(--primary);
-        color: var(--text-light);
-        border: none;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-        box-shadow: var(--shadow-md);
-        z-index: 100; /* Ensure it's above other content */
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
       }
       
-      .scroll-top-btn:hover {
-        background-color: var(--primary-dark);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-lg);
+      .info-box {
+        padding: 10px 12px;
       }
       
-      .scroll-top-btn.visible {
-        opacity: 1;
-        visibility: visible;
+      .info-text {
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .content-container {
+        padding: 20px 14px;
       }
       
-      .scroll-top-btn i {
+      .tabs-wrapper {
+        padding: 0 10px;
+      }
+      
+      .role-tab {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+      
+      .tech-stack-title {
         font-size: 1.2rem;
       }
       
-      /* Responsive Adjustments */
-      @media (max-width: 768px) {
-        .header h1 {
-          font-size: 1.6rem;
-        }
-        
-        .tech-stack-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 14px;
-        }
-        
-        .progress-container {
-          width: 100%;
-        }
-        
-        .progress-bar-container {
-          flex: 1;
-          max-width: 100%; /* Ensure it doesn't overflow */
-        }
-        
-        .role-tab {
-          padding: 12px 16px;
-          font-size: 0.9rem;
-        }
-        
-        .roadmap-table th,
-        .roadmap-table td {
-          padding: 16px 18px; /* Slightly adjusted */
-        }
-        
-        .tabs-wrapper {
-          padding: 0 14px; /* Consistent padding */
-          overflow-x: auto; /* Ensure tabs scroll if too many */
-          flex-wrap: nowrap; /* Prevent wrapping on small screens */
-        }
-        
-        .scroll-top-btn {
-          width: 40px;
-          height: 40px;
-          bottom: 20px;
-          right: 20px;
-        }
+      .tech-stack-header {
+        padding: 16px 18px;
       }
       
-      @media (max-width: 576px) {
-        .content-container {
-          padding: 20px 14px;
-        }
-        
-        .tabs-wrapper {
-          padding: 0 10px;
-        }
-        
-        .role-tab {
-          padding: 10px 14px;
-          font-size: 0.85rem;
-        }
-        
-        .tech-stack-title {
-          font-size: 1.2rem;
-        }
-        
-        .tech-stack-header {
-          padding: 16px 18px;
-        }
-        
-        .roadmap-table th,
-        .roadmap-table td {
-          padding: 14px 16px;
-        }
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 14px 16px;
       }
-    </style>
-  </head>
-  <body>
-    <header class="header" id="top">
-      <div class="header-container">
-        <h1>NIAT_X_GEOGO Techsolutions</h1>
-      </div>
-    </header>
-    
-    <div class="tabs-container">
-      <div class="tabs-wrapper">
-        
-          <div class="role-tab active" onclick="showRole(0)">
-            Foundation Training
-          </div>
-        
-          <div class="role-tab " onclick="showRole(1)">
-            PyTorch & TensorFlow & Computer Vision
-          </div>
-        
-      </div>
+      
+      .foundation-info {
+        padding: 0 14px;
+        margin-bottom: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header-container">
+      <h1>NIAT_X_GEOGO Techsolutions</h1>
     </div>
-    
-    
-      <div class="role-section" id="role-0" style="display: block;">
-        <div class="content-container">
-          
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-brands fa-html5 tech-stack-icon"></i>
-                  HTML,CSS,BootStrap
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 100%;"></div>
-                  </div>
-                  <span class="progress-text">100% Complete</span>
-                </div>
+  </header>
+  
+  <div class="tabs-container">
+    <div class="tabs-wrapper">
+      
+        <div class="role-tab active" onclick="showRole(0)">
+          Foundation Training
+        </div>
+      
+        <div class="role-tab " onclick="showRole(1)">
+          PyTorch & TensorFlow & Computer Vision
+        </div>
+      
+    </div>
+  </div>
+  
+  
+    <div class="role-section" id="role-0" style="display: block;">
+      
+      <!-- Foundation Training Info Box -->
+      <div class="foundation-info">
+        <div class="info-box">
+          <div class="info-icon">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <div class="info-text">
+            <strong style="color: var(--primary-dark);">Foundation Training</strong> with technologies like 
+            <span style="color: #E34F26; font-weight: 600;">HTML</span>, 
+            <span style="color: #1572B6; font-weight: 600;">CSS</span>, 
+            <span style="color: #F7DF1E; font-weight: 600; background-color: #323330; padding: 0 2px; border-radius: 2px;">JS</span>, 
+            <span style="color: #3776AB; font-weight: 600;">Python</span> and 
+            <span style="color: #4479A1; font-weight: 600;">SQL</span> is 
+            <span class="highlight">common for all students</span> regardless of company-specific technology requirements.
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-container">
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-brands fa-html5 tech-stack-icon"></i>
+                HTML,CSS,BootStrap
               </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPIC</th>
-                      <th width="30%">PROJECTS/APPS BUILT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Introduction to HTML</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build Your Own Static Website using Gen AI</li><li>Introduction to HTML</li><li>HTML Elements</li><li>- Image Element</li><li>- Heading Element</li><li>- Paragraph Element</li><li>- Button Element</li><li>- Container Element</li><li>- Anchor Element</li><li>- Line Break Element</li><li>- Horizontal Rule Element</li><li>- Semantic Elements</li><li>- Multimedia Elements</li><li>HTML Attributes</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Restaurant Website</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Introduction to CSS</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>CSS Properties</li><li>CSS Text Properties</li><li>CSS Background Properties</li><li>CSS Font Family</li><li>CSS Font Size</li><li>CSS Font Style</li><li>CSS Font Weight</li><li>CSS Text Decoration</li><li>CSS Box Properties</li><li>CSS Colors</li><li>Reusability of CSS Rulesets</li><li>CSS Box Model Properties</li><li>CSS Selectors</li><li>CSS Combinators</li><li>CSS Specificity & Cascade</li><li>CSS Gradients and Transitions</li><li>CSS Transforms and Animations</li><li>CSS Animations</li><li>CSS Flexbox</li><li>CSS Grid</li><li>CSS Media Queries</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Photo Gallery
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <span class="progress-text">100% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECTS/APPS BUILT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Introduction to HTML</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build Your Own Static Website using Gen AI</li><li>Introduction to HTML</li><li>HTML Elements</li><li>- Image Element</li><li>- Heading Element</li><li>- Paragraph Element</li><li>- Button Element</li><li>- Container Element</li><li>- Anchor Element</li><li>- Line Break Element</li><li>- Horizontal Rule Element</li><li>- Semantic Elements</li><li>- Multimedia Elements</li><li>HTML Attributes</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Restaurant Website</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Introduction to CSS</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>CSS Properties</li><li>CSS Text Properties</li><li>CSS Background Properties</li><li>CSS Font Family</li><li>CSS Font Size</li><li>CSS Font Style</li><li>CSS Font Weight</li><li>CSS Text Decoration</li><li>CSS Box Properties</li><li>CSS Colors</li><li>Reusability of CSS Rulesets</li><li>CSS Box Model Properties</li><li>CSS Selectors</li><li>CSS Combinators</li><li>CSS Specificity & Cascade</li><li>CSS Gradients and Transitions</li><li>CSS Transforms and Animations</li><li>CSS Animations</li><li>CSS Flexbox</li><li>CSS Grid</li><li>CSS Media Queries</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Photo Gallery
 Landing Page for a Product</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Introduction to Bootstrap</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>How to use Bootstrap?</li><li>Predefined Styles in Bootstrap</li><li>Flexbox Properties</li><li>Bootstrap Components</li><li>Bootstrap Utilities</li><li>Grid System</li><li>Column Wrapping</li><li>Spacing Utilities</li><li>Background Color Utilities</li><li>Bootstrap Navbar</li><li>Bootstrap Spacing Utilities</li><li>Flex Utilities</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Simple Blog Website
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Introduction to Bootstrap</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>How to use Bootstrap?</li><li>Predefined Styles in Bootstrap</li><li>Flexbox Properties</li><li>Bootstrap Components</li><li>Bootstrap Utilities</li><li>Grid System</li><li>Column Wrapping</li><li>Spacing Utilities</li><li>Background Color Utilities</li><li>Bootstrap Navbar</li><li>Bootstrap Spacing Utilities</li><li>Flex Utilities</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Simple Blog Website
 E-commerce Product Listing
 Weather Information Page</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-brands fa-js tech-stack-icon"></i>
+                Javascript
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <span class="progress-text">100% Complete</span>
               </div>
             </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-brands fa-js tech-stack-icon"></i>
-                  Javascript
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 100%;"></div>
-                  </div>
-                  <span class="progress-text">100% Complete</span>
-                </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPICS</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT/APP TO BUILD</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">JS Syntax & Essentials</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Spread Operator (Arrays, Objects, Function Calls)</li><li>Rest Parameters</li><li>Destructuring</li><li>Default Parameters</li><li>Template Literals</li><li>Ternary & Switch</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Profile Formatter: Use spread, rest, destructuring, and template literals to render user info</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Functions & Object Creators</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Arrow Functions</li><li>Returning Objects</li><li>Constructor vs Factory Functions</li><li>`new` Keyword</li><li>Object Properties</li><li>Built-in Constructors (Date)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Create a Task Manager App using constructor/factory functions and Date object timestamps</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">`this` & Variable Handling</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Understanding `this` in Methods</li><li>Arrow vs Regular Functions</li><li>Callbacks</li><li>Mutable vs Immutable Values</li><li>`let` vs `const`</li><li>Variable Declarations</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a User Object Library simulating `this` behavior in different function types</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Prototypes & Inheritance</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Prototype Property</li><li>Prototypal Inheritance</li><li>Built-in Constructors (`Array`,`Function`)</li><li>Using `new`</li><li>Prototype Chain</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Shape Library with inheritance (Circle, Rectangle) using prototype & constructor</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Classes & Modern OOP</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>JS Classes</li><li>`constructor()` method</li><li>Inheritance using `extends`</li><li>Using `super()` to inherit properties and methods</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Rebuild the Shape Library from Day 4 using ES6 Classes and test inheritance features</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Async JS & Array Utilities</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Synchronous vs Asynchronous</li><li>Promises (`then`, `catch`, chaining)</li><li>Creating Promises (`new Promise`, `resolve`, `reject`)</li><li>Async/Await</li><li>map()</li><li>filter()</li><li>reduce()</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a GitHub User Fetcher: Use async/await, Promises, and array methods to process data</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-brands fa-python tech-stack-icon"></i>
+                Python
               </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPICS</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT/APP TO BUILD</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">JS Syntax & Essentials</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Spread Operator (Arrays, Objects, Function Calls)</li><li>Rest Parameters</li><li>Destructuring</li><li>Default Parameters</li><li>Template Literals</li><li>Ternary & Switch</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Profile Formatter: Use spread, rest, destructuring, and template literals to render user info</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Functions & Object Creators</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Arrow Functions</li><li>Returning Objects</li><li>Constructor vs Factory Functions</li><li>`new` Keyword</li><li>Object Properties</li><li>Built-in Constructors (Date)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Create a Task Manager App using constructor/factory functions and Date object timestamps</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">`this` & Variable Handling</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Understanding `this` in Methods</li><li>Arrow vs Regular Functions</li><li>Callbacks</li><li>Mutable vs Immutable Values</li><li>`let` vs `const`</li><li>Variable Declarations</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a User Object Library simulating `this` behavior in different function types</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Prototypes & Inheritance</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Prototype Property</li><li>Prototypal Inheritance</li><li>Built-in Constructors (`Array`,`Function`)</li><li>Using `new`</li><li>Prototype Chain</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Shape Library with inheritance (Circle, Rectangle) using prototype & constructor</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Classes & Modern OOP</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>JS Classes</li><li>`constructor()` method</li><li>Inheritance using `extends`</li><li>Using `super()` to inherit properties and methods</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Rebuild the Shape Library from Day 4 using ES6 Classes and test inheritance features</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Async JS & Array Utilities</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Synchronous vs Asynchronous</li><li>Promises (`then`, `catch`, chaining)</li><li>Creating Promises (`new Promise`, `resolve`, `reject`)</li><li>Async/Await</li><li>map()</li><li>filter()</li><li>reduce()</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a GitHub User Fetcher: Use async/await, Promises, and array methods to process data</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <span class="progress-text">100% Complete</span>
               </div>
             </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-brands fa-python tech-stack-icon"></i>
-                  Python
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 100%;"></div>
-                  </div>
-                  <span class="progress-text">100% Complete</span>
-                </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a contact book application using dictionaries and lists</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Create a student grades management system that reads and writes data to a CSV file</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Create a class-based employee management system</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a multi-level inheritance system for a school management system</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Error Handling and Debugging</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Write a calculator app with error handling and input validation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Final Project and Best Practices</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Complete a task management web application using Flask or Django</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-database tech-stack-icon"></i>
+                SQL
               </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPIC</th>
-                      <th width="30%">PROJECT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a contact book application using dictionaries and lists</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Create a student grades management system that reads and writes data to a CSV file</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Create a class-based employee management system</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a multi-level inheritance system for a school management system</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Error Handling and Debugging</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Write a calculator app with error handling and input validation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Final Project and Best Practices</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Complete a task management web application using Flask or Django</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <span class="progress-text">100% Complete</span>
               </div>
             </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-solid fa-database tech-stack-icon"></i>
-                  SQL
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 100%;"></div>
-                  </div>
-                  <span class="progress-text">100% Complete</span>
-                </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPICS</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT/APP TO BUILD</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Database & Relational Foundations</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>What is a Database, DBMS vs RDBMS, Relational vs Non-Relational, ER Models, One-to-One, Many-to-One, Many-to-Many</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Model Amazon-like Product-Customer ERD (ER Diagram + Schema)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Table Operations & Basic Queries</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Creating Table, Inserting Data, Retrieving Data, Updating Table, Deleting Table, Drop Table, Primary Key, Foreign Key</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Create & Populate Tables for Users, Products, Orders</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Filtering, Logic & Comparison</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>WHERE Clause, LIKE, IN, BETWEEN, AND, OR, NOT, Precedence, Multiple Logical Operators, ORDER BY, LIMIT, OFFSET</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Query Builder Tool for Filtering Orders (CLI or SQL Script)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Aggregation & Grouping</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>SUM, AVG, MIN, MAX, COUNT, Alias, GROUP BY, GROUP BY with multiple columns, HAVING, Expressions in SELECT/WHERE</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Sales Summary Dashboard Using GROUP BY + Aggregates</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Joins & Relationships</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Natural Join, Inner Join, Left Join, Right Join, Full Join, Cross Join, Self Join, Join on Multiple Tables</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Multi-table Product-User Order Tracker with Complex Joins</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Advanced Queries & Views</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>CASE Clause, STRFTIME, CAST, Arithmetic Functions, Subqueries, UNION, INTERSECT, MINUS, Views, Deleting Views</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Customer Insights View + Write Subqueries for Metrics</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-brands fa-css3-alt tech-stack-icon"></i>
+                Tailwind CSS
               </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPICS</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT/APP TO BUILD</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Database & Relational Foundations</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>What is a Database, DBMS vs RDBMS, Relational vs Non-Relational, ER Models, One-to-One, Many-to-One, Many-to-Many</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Model Amazon-like Product-Customer ERD (ER Diagram + Schema)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Table Operations & Basic Queries</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Creating Table, Inserting Data, Retrieving Data, Updating Table, Deleting Table, Drop Table, Primary Key, Foreign Key</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Create & Populate Tables for Users, Products, Orders</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Filtering, Logic & Comparison</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>WHERE Clause, LIKE, IN, BETWEEN, AND, OR, NOT, Precedence, Multiple Logical Operators, ORDER BY, LIMIT, OFFSET</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Query Builder Tool for Filtering Orders (CLI or SQL Script)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Aggregation & Grouping</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>SUM, AVG, MIN, MAX, COUNT, Alias, GROUP BY, GROUP BY with multiple columns, HAVING, Expressions in SELECT/WHERE</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Sales Summary Dashboard Using GROUP BY + Aggregates</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Joins & Relationships</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Natural Join, Inner Join, Left Join, Right Join, Full Join, Cross Join, Self Join, Join on Multiple Tables</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Multi-table Product-User Order Tracker with Complex Joins</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Advanced Queries & Views</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>CASE Clause, STRFTIME, CAST, Arithmetic Functions, Subqueries, UNION, INTERSECT, MINUS, Views, Deleting Views</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Customer Insights View + Write Subqueries for Metrics</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <span class="progress-text">100% Complete</span>
               </div>
             </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-brands fa-css3-alt tech-stack-icon"></i>
-                  Tailwind CSS
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 100%;"></div>
-                  </div>
-                  <span class="progress-text">100% Complete</span>
-                </div>
-              </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPIC</th>
-                      <th width="30%">PROJECTS/APPS BUILT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Introduction to Tailwind CSS</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Utility classes</li><li>Setting Up Tailwind CSS</li><li>Building an Application Using Tailwind CSS</li><li>Tailwind CSS Grid Utility Classes</li><li>Tailwind Responsive Utility Classes</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Global News Network
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECTS/APPS BUILT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Introduction to Tailwind CSS</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Utility classes</li><li>Setting Up Tailwind CSS</li><li>Building an Application Using Tailwind CSS</li><li>Tailwind CSS Grid Utility Classes</li><li>Tailwind Responsive Utility Classes</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Global News Network
 Restaurant Dine Application
 Landing Page</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-completed">
-                              <i class="fa-solid fa-check-circle"></i>
-                              Completed
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
-              </div>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
             </div>
-            
-        </div>
-      </div>
-    
-      <div class="role-section" id="role-1" style="display: none;">
-        <div class="content-container">
+          </div>
           
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-solid fa-code tech-stack-icon"></i>
-                  PyTorch
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                  </div>
-                  <span class="progress-text">0% Complete</span>
-                </div>
-              </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Python & PyTorch Basics</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>NumPy, Pandas, PyTorch Tensors, Autograd, GPU Acceleration</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Linear Regression from Scratch in PyTorch</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Neural Networks Basics</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Torch.nn, Loss Functions, Optimizers, Backpropagation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Train a Neural Network for MNIST Digit Classification</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Convolutional Neural Nets</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>CNNs, Transfer Learning, Batch Normalization, Data Augmentation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Image Classification using ResNet on CIFAR-10</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">NLP with PyTorch</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Tokenization, Embeddings, RNNs, LSTMs, Transformers (Intro to HuggingFace)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Train an LSTM for Sentiment Analysis on IMDB Dataset</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Advanced Deep Learning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>GANs, Autoencoders, Attention Mechanisms, PyTorch Lightning</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement a GAN for Image Generation (e.g., DCGAN)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Deployment & Optimization</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>ONNX, TorchScript, Model Optimization, Inference Pipelines, FastAPI</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Deploy a PyTorch Model as an API using FastAPI</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-solid fa-code tech-stack-icon"></i>
-                  TensorFlow
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                  </div>
-                  <span class="progress-text">0% Complete</span>
-                </div>
-              </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Python & PyTorch Basics</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>NumPy, Pandas, PyTorch Tensors, Autograd, GPU Acceleration</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Linear Regression from Scratch in PyTorch</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Neural Networks Basics</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Torch.nn, Loss Functions, Optimizers, Backpropagation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Train a Neural Network for MNIST Digit Classification</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Convolutional Neural Nets</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>CNNs, Transfer Learning, Batch Normalization, Data Augmentation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Image Classification using ResNet on CIFAR-10</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">NLP with PyTorch</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Tokenization, Embeddings, RNNs, LSTMs, Transformers (Intro to HuggingFace)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Train an LSTM for Sentiment Analysis on IMDB Dataset</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Advanced Deep Learning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>GANs, Autoencoders, Attention Mechanisms, PyTorch Lightning</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement a GAN for Image Generation (e.g., DCGAN)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Deployment & Optimization</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>ONNX, TorchScript, Model Optimization, Inference Pipelines, FastAPI</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Deploy a PyTorch Model as an API using FastAPI</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-solid fa-code tech-stack-icon"></i>
-                  Computer Vision Basics
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                  </div>
-                  <span class="progress-text">0% Complete</span>
-                </div>
-              </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Fundamentals of Computer Vision</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Image Processing Basics, OpenCV Introduction, NumPy for CV, Image Filters, Edge Detection, Histograms</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Edge Detection using OpenCV</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Feature Extraction & Object Detection</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>SIFT, ORB, HOG Features, Contours, Bounding Boxes, Haar Cascades</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Face Detection System</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Deep Learning for Computer Vision</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>CNNs, Transfer Learning, Pretrained Models (VGG, ResNet), Data Augmentation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Train a CNN for Digit Recognition (MNIST)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Advanced Applications & Model Deployment</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>YOLO & SSD, ONNX, Model Optimization, Deployment with Flask/FastAPI</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Deploy an Object Detection Model as an API</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-solid fa-code tech-stack-icon"></i>
-                  Machine Learning
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                  </div>
-                  <span class="progress-text">0% Complete</span>
-                </div>
-              </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Foundations of ML & Python</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Python for ML, NumPy, Pandas, Matplotlib, Scikit-Learn, Data Preprocessing</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Data Preprocessing Pipeline</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Supervised Learning Basics</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Linear Regression, Logistic Regression, Evaluation Metrics</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Predict House Prices Using Regression</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Advanced Supervised Learning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Decision Trees, Random Forest, SVM, Hyperparameter Tuning</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Loan Approval Prediction Model</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Unsupervised Learning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Clustering (K-Means, DBSCAN), Dimensionality Reduction (PCA, t-SNE)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Customer Segmentation for an E-Commerce App</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Neural Networks & Deep Learning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Perceptron, MLP, Activation Functions, Backpropagation, Optimization (SGD, Adam)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement a Handwritten Digit Classifier (MNIST)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">CNNs for Computer Vision</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Convolutional Layers, Pooling, CNN Architectures (VGG, ResNet)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Image Classification using Transfer Learning</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">NLP & Transformer Models</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Word Embeddings, RNNs, LSTMs, Attention Mechanism, Transformers (BERT, GPT)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Sentiment Analysis on Product Reviews</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">ML Deployment & MLOps</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Model Deployment (Flask/FastAPI), Docker, CI/CD for ML, Cloud AI Services (AWS/GCP)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Deploy a Flask-Based ML Model on AWS</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            
-            <div class="tech-stack-section">
-              <div class="tech-stack-header">
-                <div class="tech-stack-title">
-                  <i class="fa-solid fa-code tech-stack-icon"></i>
-                  Deep Learning
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                  </div>
-                  <span class="progress-text">0% Complete</span>
-                </div>
-              </div>
-              <div class="table-container">
-                <table class="roadmap-table">
-                  <thead>
-                    <tr>
-                      <th width="20%">TOPIC</th>
-                      <th width="30%">SUB-TOPICS</th>
-                      <th width="30%">PROJECT</th>
-                      <th width="20%">STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                        <tr>
-                          <td class="topic-cell">Python & Math for Deep Learning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Linear Algebra, Probability, Statistics, NumPy, Pandas, Matplotlib</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Linear Regression from Scratch</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Neural Networks Basics</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Perceptron, Activation Functions, Forward & Backpropagation</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Simple Neural Network from Scratch</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Deep Learning Frameworks</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>PyTorch Basics, TensorFlow Basics, Keras, AutoGrad, Model Training</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Train a CNN on MNIST Dataset</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Convolutional Neural Networks</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Conv Layers, Pooling, BatchNorm, Transfer Learning</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Build a Dog vs. Cat Classifier</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Optimization & Hyperparameter Tuning</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Loss Functions, Optimizers (SGD, Adam), Learning Rate Scheduling</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Implement Gradient Descent Variants</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Recurrent Neural Networks (RNN, LSTM, GRU)</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Sequence Modeling, Time-Series Forecasting, Attention Mechanism</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Sentiment Analysis with LSTM</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Transformers & Advanced Models</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Self-Attention, BERT, GPT, Vision Transformers (ViTs)</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Fine-tune BERT for Text Classification</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Generative Models (GANs, VAEs)</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>GANs, DCGAN, VAEs, Diffusion Models</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Generate Images using GANs</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Deployment & Industry Best Practices</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Model Deployment (Flask, FastAPI, TensorFlow Serving), MLOps, Docker</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>Deploy a DL Model with FastAPI & Docker</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr>
-                          <td class="topic-cell">Capstone Project</td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>End-to-End AI Solution, Data Engineering, Model Deployment</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            
-                            <ul class="item-list">
-                              <li>AI-Powered Resume Screener or Stock Price Predictor</li>
-                            </ul>
-                            
-                          </td>
-                          <td>
-                            <span class="status-badge status-not-started">
-                              <i class="fa-solid fa-circle-exclamation"></i>
-                              Yet to Start
-                            </span>
-                          </td>
-                        </tr>
-                        
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            
-        </div>
       </div>
-    
+    </div>
+  
+    <div class="role-section" id="role-1" style="display: none;">
+      
+      <div class="content-container">
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                PyTorch
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Python & PyTorch Basics</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>NumPy, Pandas, PyTorch Tensors, Autograd, GPU Acceleration</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Linear Regression from Scratch in PyTorch</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Neural Networks Basics</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Torch.nn, Loss Functions, Optimizers, Backpropagation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Train a Neural Network for MNIST Digit Classification</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Convolutional Neural Nets</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>CNNs, Transfer Learning, Batch Normalization, Data Augmentation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Image Classification using ResNet on CIFAR-10</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">NLP with PyTorch</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Tokenization, Embeddings, RNNs, LSTMs, Transformers (Intro to HuggingFace)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Train an LSTM for Sentiment Analysis on IMDB Dataset</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Advanced Deep Learning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>GANs, Autoencoders, Attention Mechanisms, PyTorch Lightning</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement a GAN for Image Generation (e.g., DCGAN)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Deployment & Optimization</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>ONNX, TorchScript, Model Optimization, Inference Pipelines, FastAPI</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Deploy a PyTorch Model as an API using FastAPI</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                TensorFlow
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Python & PyTorch Basics</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>NumPy, Pandas, PyTorch Tensors, Autograd, GPU Acceleration</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Linear Regression from Scratch in PyTorch</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Neural Networks Basics</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Torch.nn, Loss Functions, Optimizers, Backpropagation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Train a Neural Network for MNIST Digit Classification</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Convolutional Neural Nets</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>CNNs, Transfer Learning, Batch Normalization, Data Augmentation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Image Classification using ResNet on CIFAR-10</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">NLP with PyTorch</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Tokenization, Embeddings, RNNs, LSTMs, Transformers (Intro to HuggingFace)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Train an LSTM for Sentiment Analysis on IMDB Dataset</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Advanced Deep Learning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>GANs, Autoencoders, Attention Mechanisms, PyTorch Lightning</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement a GAN for Image Generation (e.g., DCGAN)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Deployment & Optimization</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>ONNX, TorchScript, Model Optimization, Inference Pipelines, FastAPI</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Deploy a PyTorch Model as an API using FastAPI</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                Computer Vision Basics
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Fundamentals of Computer Vision</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Image Processing Basics, OpenCV Introduction, NumPy for CV, Image Filters, Edge Detection, Histograms</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Edge Detection using OpenCV</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Feature Extraction & Object Detection</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>SIFT, ORB, HOG Features, Contours, Bounding Boxes, Haar Cascades</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Face Detection System</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Deep Learning for Computer Vision</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>CNNs, Transfer Learning, Pretrained Models (VGG, ResNet), Data Augmentation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Train a CNN for Digit Recognition (MNIST)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Advanced Applications & Model Deployment</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>YOLO & SSD, ONNX, Model Optimization, Deployment with Flask/FastAPI</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Deploy an Object Detection Model as an API</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                Machine Learning
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Foundations of ML & Python</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Python for ML, NumPy, Pandas, Matplotlib, Scikit-Learn, Data Preprocessing</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Data Preprocessing Pipeline</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Supervised Learning Basics</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Linear Regression, Logistic Regression, Evaluation Metrics</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Predict House Prices Using Regression</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Advanced Supervised Learning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Decision Trees, Random Forest, SVM, Hyperparameter Tuning</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Loan Approval Prediction Model</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Unsupervised Learning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Clustering (K-Means, DBSCAN), Dimensionality Reduction (PCA, t-SNE)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Customer Segmentation for an E-Commerce App</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Neural Networks & Deep Learning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Perceptron, MLP, Activation Functions, Backpropagation, Optimization (SGD, Adam)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement a Handwritten Digit Classifier (MNIST)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">CNNs for Computer Vision</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Convolutional Layers, Pooling, CNN Architectures (VGG, ResNet)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Image Classification using Transfer Learning</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">NLP & Transformer Models</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Word Embeddings, RNNs, LSTMs, Attention Mechanism, Transformers (BERT, GPT)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Sentiment Analysis on Product Reviews</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">ML Deployment & MLOps</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Model Deployment (Flask/FastAPI), Docker, CI/CD for ML, Cloud AI Services (AWS/GCP)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Deploy a Flask-Based ML Model on AWS</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                Deep Learning
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Python & Math for Deep Learning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Linear Algebra, Probability, Statistics, NumPy, Pandas, Matplotlib</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Linear Regression from Scratch</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Neural Networks Basics</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Perceptron, Activation Functions, Forward & Backpropagation</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Simple Neural Network from Scratch</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Deep Learning Frameworks</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>PyTorch Basics, TensorFlow Basics, Keras, AutoGrad, Model Training</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Train a CNN on MNIST Dataset</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Convolutional Neural Networks</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Conv Layers, Pooling, BatchNorm, Transfer Learning</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Build a Dog vs. Cat Classifier</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Optimization & Hyperparameter Tuning</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Loss Functions, Optimizers (SGD, Adam), Learning Rate Scheduling</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Implement Gradient Descent Variants</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Recurrent Neural Networks (RNN, LSTM, GRU)</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Sequence Modeling, Time-Series Forecasting, Attention Mechanism</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Sentiment Analysis with LSTM</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Transformers & Advanced Models</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Self-Attention, BERT, GPT, Vision Transformers (ViTs)</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Fine-tune BERT for Text Classification</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Generative Models (GANs, VAEs)</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>GANs, DCGAN, VAEs, Diffusion Models</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Generate Images using GANs</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Deployment & Industry Best Practices</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Model Deployment (Flask, FastAPI, TensorFlow Serving), MLOps, Docker</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>Deploy a DL Model with FastAPI & Docker</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="topic-cell">Capstone Project</td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>End-to-End AI Solution, Data Engineering, Model Deployment</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          
+                          <ul class="item-list">
+                            <li>AI-Powered Resume Screener or Stock Price Predictor</li>
+                          </ul>
+                          
+                        </td>
+                        <td>
+                          <span class="status-badge status-not-started">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Yet to Start
+                          </span>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  
     
     <!-- Scroll to top button -->
     <button class="scroll-top-btn" id="scrollTopBtn" title="Scroll to top">
