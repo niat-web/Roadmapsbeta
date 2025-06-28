@@ -626,7 +626,7 @@
             <strong style="color: var(--primary-dark);">Foundation Training</strong> with technologies like 
             <span style="color: #E34F26; font-weight: 600;">HTML</span>, 
             <span style="color: #1572B6; font-weight: 600;">CSS</span>, 
-            <span style="color: #1572B6; font-weight: 600;">JS</span>, 
+            <span style="color: #F7DF1E; font-weight: 600; background-color: #323330; padding: 0 2px; border-radius: 2px;">JS</span>, 
             <span style="color: #3776AB; font-weight: 600;">Python</span> and 
             <span style="color: #4479A1; font-weight: 600;">SQL</span> is 
             <span class="highlight">common for all students</span> regardless of company-specific technology requirements.
@@ -1508,9 +1508,9 @@ Landing Page</li>
               </div>
               <div class="progress-container">
                 <div class="progress-bar-container">
-                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                  <div class="progress-bar-fill" style="width: 38%;"></div>
                 </div>
-                <span class="progress-text">0% Complete</span>
+                <span class="progress-text">38% Complete</span>
               </div>
             </div>
             <div class="table-container">
@@ -1542,9 +1542,9 @@ Landing Page</li>
                           
                         </td>
                         <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
                           </span>
                         </td>
                       </tr>
@@ -1566,9 +1566,9 @@ Landing Page</li>
                           
                         </td>
                         <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
                           </span>
                         </td>
                       </tr>
@@ -1662,9 +1662,9 @@ Landing Page</li>
                           
                         </td>
                         <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                          <span class="status-badge status-completed">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Completed
                           </span>
                         </td>
                       </tr>
@@ -1725,65 +1725,66 @@ Landing Page</li>
       </div>
     </div>
   
-  
-  <!-- Scroll to top button -->
-  <button class="scroll-top-btn" id="scrollTopBtn" title="Scroll to top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-  
-  <script>
-    // Tab switching function with smooth scroll to top
-    function showRole(roleIndex) {
-      // Hide all role sections
-      document.querySelectorAll('.role-section').forEach(section => {
-        section.style.display = 'none';
-      });
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Scroll to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    
+    <script>
+      // Tab switching function with smooth scroll to top
+      function showRole(roleIndex) {
+        // Hide all role sections
+        document.querySelectorAll('.role-section').forEach(section => {
+          section.style.display = 'none';
+        });
+        
+        // Show the selected role section
+        document.getElementById('role-' + roleIndex).style.display = 'block';
+        
+        // Update active tab
+        document.querySelectorAll('.role-tab').forEach((tab, index) => {
+          if (index === roleIndex) {
+            tab.classList.add('active');
+          } else {
+            tab.classList.remove('active');
+          }
+        });
+        
+        // Smooth scroll to top of content
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
       
-      // Show the selected role section
-      document.getElementById('role-' + roleIndex).style.display = 'block';
+      // Scroll to top button functionality
+      const scrollButton = document.getElementById('scrollTopBtn');
       
-      // Update active tab
-      document.querySelectorAll('.role-tab').forEach((tab, index) => {
-        if (index === roleIndex) {
-          tab.classList.add('active');
+      // Show button when page is scrolled down
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) { // Show after scrolling 300px
+          scrollButton.classList.add('visible');
         } else {
-          tab.classList.remove('active');
+          scrollButton.classList.remove('visible');
         }
       });
       
-      // Smooth scroll to top of content
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      // Scroll to top when button clicked
+      scrollButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
-    }
-    
-    // Scroll to top button functionality
-    const scrollButton = document.getElementById('scrollTopBtn');
-    
-    // Show button when page is scrolled down
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) { // Show after scrolling 300px
-        scrollButton.classList.add('visible');
-      } else {
-        scrollButton.classList.remove('visible');
-      }
-    });
-    
-    // Scroll to top when button clicked
-    scrollButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      
+      // Check initial scroll position on page load
+      window.addEventListener('load', () => {
+        if (window.pageYOffset > 300) {
+          scrollButton.classList.add('visible');
+        }
       });
-    });
-    
-    // Check initial scroll position on page load
-    window.addEventListener('load', () => {
-      if (window.pageYOffset > 300) {
-        scrollButton.classList.add('visible');
-      }
-    });
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>
+  
